@@ -1,18 +1,31 @@
 input.onButtonPressed(Button.A, function () {
+    music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
     wuKong.setMotorSpeed(wuKong.MotorList.M1, 50)
     wuKong.setMotorSpeed(wuKong.MotorList.M2, -50)
-    basic.showIcon(IconNames.Pitchfork)
+    basic.showArrow(ArrowNames.North)
+})
+input.onSound(DetectedSound.Loud, function () {
+    wuKong.stopAllMotor()
 })
 input.onButtonPressed(Button.AB, function () {
-    wuKong.setMotorSpeed(wuKong.MotorList.M1, 0)
-    wuKong.setMotorSpeed(wuKong.MotorList.M2, 0)
-    basic.showIcon(IconNames.Heart)
+    wuKong.stopAllMotor()
 })
+// among_us
 input.onButtonPressed(Button.B, function () {
     wuKong.setMotorSpeed(wuKong.MotorList.M1, -50)
     wuKong.setMotorSpeed(wuKong.MotorList.M2, 50)
-    basic.showIcon(IconNames.Sword)
+    basic.showArrow(ArrowNames.South)
 })
+for (let index = 0; index < 4; index++) {
+    basic.showLeds(`
+        . # # # .
+        # # . # #
+        # # . # .
+        . # # # .
+        . # . # .
+        `)
+}
+// balls
 basic.forever(function () {
     if (sonarbit.sonarbit_distance(Distance_Unit.Distance_Unit_mm, DigitalPin.P0) <= 8) {
         basic.showIcon(IconNames.Yes)
@@ -26,8 +39,8 @@ basic.forever(function () {
         basic.pause(500)
     }
     if (sonarbit.sonarbit_distance(Distance_Unit.Distance_Unit_mm, DigitalPin.P0) <= 8) {
-        wuKong.setMotorSpeed(wuKong.MotorList.M1, 0)
-        wuKong.setMotorSpeed(wuKong.MotorList.M2, 0)
-        basic.showIcon(IconNames.Heart)
+        for (let index = 0; index < 1; index++) {
+            wuKong.setAllMotor(50, 0)
+        }
     }
 })
