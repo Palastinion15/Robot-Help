@@ -25,4 +25,9 @@ basic.forever(function () {
         wuKong.setServoAngle(wuKong.ServoTypeList._360, wuKong.ServoList.S0, 0)
         basic.pause(500)
     }
+    if (sonarbit.sonarbit_distance(Distance_Unit.Distance_Unit_mm, DigitalPin.P0) <= 8) {
+        wuKong.setMotorSpeed(wuKong.MotorList.M1, 0)
+        wuKong.setMotorSpeed(wuKong.MotorList.M2, 0)
+        basic.showIcon(IconNames.Heart)
+    }
 })
