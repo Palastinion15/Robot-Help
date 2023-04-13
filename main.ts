@@ -1,6 +1,6 @@
 input.onButtonPressed(Button.A, function () {
-    wuKong.setMotorSpeed(wuKong.MotorList.M1, 50)
-    wuKong.setMotorSpeed(wuKong.MotorList.M2, 50)
+    wuKong.setMotorSpeed(wuKong.MotorList.M1, -50)
+    wuKong.setMotorSpeed(wuKong.MotorList.M2, -50)
     basic.showIcon(IconNames.Pitchfork)
 })
 input.onButtonPressed(Button.AB, function () {
@@ -9,8 +9,8 @@ input.onButtonPressed(Button.AB, function () {
     basic.showIcon(IconNames.Heart)
 })
 input.onButtonPressed(Button.B, function () {
-    wuKong.setMotorSpeed(wuKong.MotorList.M1, -50)
-    wuKong.setMotorSpeed(wuKong.MotorList.M2, -50)
+    wuKong.setMotorSpeed(wuKong.MotorList.M1, 50)
+    wuKong.setMotorSpeed(wuKong.MotorList.M2, 50)
     basic.showIcon(IconNames.Sword)
 })
 basic.forever(function () {
